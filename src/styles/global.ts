@@ -38,7 +38,6 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
 
-
   body, input, button, textarea{
   font-family:"Poppins", sans-serif;
   font-weight: 400;
@@ -56,4 +55,9 @@ export const GlobalStyle = createGlobalStyle`
     opacity: 0.6;
     cursor: not-allowed;
   }
+
+  a{
+    text-decoration: none;
+  }
+  
 `;
