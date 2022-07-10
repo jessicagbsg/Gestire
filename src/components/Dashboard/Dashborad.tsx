@@ -1,14 +1,17 @@
-import { Button } from "../Button/Button";
+import { Button } from "../../styles/Button";
 import { Cards } from "../Cards/Cards";
 import { Container } from "./styles";
 
-export function Dashboard() {
+interface Props {
+  onOpenCreateProjectModal: () => void;
+}
+export function Dashboard({ onOpenCreateProjectModal }: Props) {
   return (
     <Container>
       <Cards title="PROJECTS PROGRESS">
         <div>
           <p>You don't have projects</p>
-          <Button>New Project</Button>
+          <Button onClick={onOpenCreateProjectModal}>New Project</Button>
         </div>
       </Cards>
       <Cards title="ACTIVITIES PROGRESS">
