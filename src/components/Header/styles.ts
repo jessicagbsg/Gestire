@@ -7,13 +7,25 @@ export const ContainerNav = styled.header`
   gap: 1.8rem;
 
   img {
-    margin-left: 2rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
   }
 
   nav {
     display: flex;
     align-items: center;
     gap: 2rem;
+    position: relative;
+    &::before {
+      content: "";
+      display: block;
+      height: 3rem;
+      top: 0.8rem;
+      left: -2.5rem;
+      width: 2px;
+      background-color: #add4d9;
+      position: absolute;
+    }
   }
 
   a {
