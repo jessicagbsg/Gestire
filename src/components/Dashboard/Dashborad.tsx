@@ -1,4 +1,3 @@
-import { Button } from "../../styles/Button";
 import { Cards } from "../Cards/Cards";
 import { Container } from "./styles";
 
@@ -11,7 +10,9 @@ export function Dashboard({ onOpenCreateProjectModal }: Props) {
       <Cards title="PROJECTS PROGRESS">
         <div>
           <p>You don't have projects</p>
-          <Button onClick={onOpenCreateProjectModal}>New Project</Button>
+          <button className="green" onClick={onOpenCreateProjectModal}>
+            New Project
+          </button>
         </div>
       </Cards>
       <Cards title="ACTIVITIES PROGRESS">
@@ -20,7 +21,7 @@ export function Dashboard({ onOpenCreateProjectModal }: Props) {
             You don't have projects. To create a new task, you need to have a
             project.
           </p>
-          <Button>New Activity</Button>
+          <button className="green">New Activity</button>
         </div>
       </Cards>
       <Cards title="DELAYED PROJECTS">

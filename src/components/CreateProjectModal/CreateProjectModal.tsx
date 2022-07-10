@@ -1,6 +1,6 @@
 import Modal from "react-modal";
-import { Button } from "../../styles/Button";
-import { Container } from "../ActivitiesList/styles";
+import { Container } from "./style";
+import closeModal from "../../Assets/close.svg";
 
 interface CreateProjectModalProps {
   isOpen: boolean;
@@ -12,24 +12,45 @@ export function CreateProjectModal({
   onRequestClose,
 }: CreateProjectModalProps) {
   return (
-    <Modal isOpen={isOpen} onRequestClose={onRequestClose}>
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={onRequestClose}
+      overlayClassName="reactModalOverlay"
+      className="reactModalContent"
+    >
+      <button
+        type="button"
+        onClick={onRequestClose}
+        className="reactModalClose"
+      >
+        <img src={closeModal} alt="close modal" />
+      </button>
+
       <Container>
-        <h2>NEW PROJECT</h2>
+        <h2 className="span">NEW PROJECT</h2>
 
-        <label htmlFor="title">Title</label>
-        <input type="text" id="title" />
+        <div className="span">
+          <label htmlFor="title">Title</label>
+          <input type="text" id="title" placeholder="Project Name" />
+        </div>
 
-        <label htmlFor="description">Descriotion</label>
-        <textarea id="description" />
+        <div className="span">
+          <label htmlFor="description">Descriotion</label>
+          <textarea id="description" placeholder="Project Description" />
+        </div>
 
-        <label htmlFor="startDate"></label>
-        <input type="date" id="startDate" />
+        <div>
+          <label htmlFor="startDate"> Start Date</label>
+          <input type="date" id="startDate" />
+        </div>
 
-        <label htmlFor="endDate"></label>
-        <input type="date" id="endDate" />
+        <div>
+          <label htmlFor="endDate">End Date</label>
+          <input type="date" id="endDate" />
+        </div>
 
-        <Button>Create</Button>
-        <Button>Cancel</Button>
+        <button className="green">Create</button>
+        <button>Cancel</button>
       </Container>
     </Modal>
   );

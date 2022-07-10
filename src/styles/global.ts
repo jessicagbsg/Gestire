@@ -2,7 +2,8 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   :root{
-  --gray-background:#f9f9f9;
+  --gray-background:#F9F9F9;
+  --gray-medium: #DDDDDD
   --gray-text:#333;
 
   --green-light: #CDF0EA;
@@ -53,7 +54,21 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   button{
+    display: block;
     cursor: pointer;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.2rem;
+    background-color: #ddd;
+    color: var(--gray-text);
+    transition: 0.2s;
+    &.green{
+      background-color: var(--green-light);
+      color: var(--green-dark-text);
+    }
+    &:hover{
+      filter: brightness(0.8);
+    }
   }
 
   [disabled]{
@@ -65,4 +80,37 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
   
+  .reactModalOverlay{
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .reactModalContent{
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem;
+    position: relative;
+    background-color: var(--gray-background);
+    border-radius: 0.2rem;
+  }
+
+  .reactModalClose{
+    position: absolute;
+    top: 1rem;
+    right: 0;
+    border: none;
+    background-color: transparent;
+    img{
+      width: 20px;
+      height: 20px;
+    }
+  }
+
 `;
