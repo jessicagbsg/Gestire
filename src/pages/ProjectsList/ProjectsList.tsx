@@ -1,24 +1,48 @@
+import React from "react";
 import { Container, ListTable } from "./styles";
 import edit from "../../assets/editRed.svg";
 import del from "../../assets/deleteRed.svg";
 import { NavLink } from "react-router-dom";
+import { CreateProjectModal } from "../../components/Modals/CreateProjectModal";
+import { EditModal } from "../../components/Modals/EditModal";
+import { DeleteModal } from "../../components/Modals/DeleteModal";
 
-interface Props {
-  onOpenCreateProjectModal: () => void;
-  onOpenEditModal: () => void;
-  onOpenDeleteModal: () => void;
-}
+export function ProjectsList() {
+  const [isCreateProjectModalOpen, setIsCreateProjectModalOpen] =
+    React.useState(false);
 
-export function ProjectsList({
-  onOpenCreateProjectModal,
-  onOpenEditModal,
-  onOpenDeleteModal,
-}: Props) {
+  function handleOpenCreateProjectModal() {
+    setIsCreateProjectModalOpen(true);
+  }
+
+  function handleCloseCreateProjectModal() {
+    setIsCreateProjectModalOpen(false);
+  }
+
+  const [isEditModalOpen, setIsEditModalOpen] = React.useState(false);
+
+  function handleOpenEditModal() {
+    setIsEditModalOpen(true);
+  }
+
+  function handleCloseEditModal() {
+    setIsEditModalOpen(false);
+  }
+
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false);
+
+  function handleOpenDeleteModal() {
+    setIsDeleteModalOpen(true);
+  }
+
+  function handleCloseDeleteModal() {
+    setIsDeleteModalOpen(false);
+  }
   return (
     <Container>
       <div className="title">
         <h1>PROJECTS LIST</h1>
-        <button className="green" onClick={onOpenCreateProjectModal}>
+        <button className="green" onClick={handleOpenCreateProjectModal}>
           New Project
         </button>
       </div>
@@ -51,12 +75,12 @@ export function ProjectsList({
                 </NavLink>
               </td>
               <td>
-                <button onClick={onOpenEditModal}>
+                <button onClick={handleOpenEditModal}>
                   <img src={edit} alt="edit icon" />
                 </button>
               </td>
               <td>
-                <button onClick={onOpenDeleteModal}>
+                <button onClick={handleOpenDeleteModal}>
                   <img src={del} alt="delete icon" />
                 </button>
               </td>
@@ -76,12 +100,12 @@ export function ProjectsList({
                 </NavLink>
               </td>
               <td>
-                <button onClick={onOpenEditModal}>
+                <button onClick={handleOpenEditModal}>
                   <img src={edit} alt="edit icon" />
                 </button>
               </td>
               <td>
-                <button onClick={onOpenDeleteModal}>
+                <button onClick={handleOpenDeleteModal}>
                   <img src={del} alt="delete icon" />
                 </button>
               </td>
@@ -89,6 +113,21 @@ export function ProjectsList({
           </tbody>
         </table>
       </ListTable>
+
+      <CreateProjectModal
+        isOpen={isCreateProjectModalOpen}
+        onRequestClose={handleCloseCreateProjectModal}
+      />
+
+      <EditModal
+        isOpen={isEditModalOpen}
+        onRequestClose={handleCloseEditModal}
+      />
+
+      <DeleteModal
+        isOpen={isDeleteModalOpen}
+        onRequestClose={handleCloseDeleteModal}
+      />
     </Container>
   );
 }

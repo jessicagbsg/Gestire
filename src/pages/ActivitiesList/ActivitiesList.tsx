@@ -1,23 +1,48 @@
+import React from "react";
 import { Container, ListTable } from "../ProjectsList/styles";
 import edit from "../../assets/editBlue.svg";
 import del from "../../assets/deleteBlue.svg";
+import { EditModal } from "../../components/Modals/EditModal";
+import { DeleteModal } from "../../components/Modals/DeleteModal";
+import { CreateActivityModal } from "../../components/Modals/CreateActivityModal";
 
-interface Props {
-  onOpenCreateActivityModal: () => void;
-  onOpenEditModal: () => void;
-  onOpenDeleteModal: () => void;
-}
+export function ActivitiesList() {
+  const [isCreateActivityModalOpen, setIsCreateActivityModalOpen] =
+    React.useState(false);
 
-export function ActivitiesList({
-  onOpenCreateActivityModal,
-  onOpenEditModal,
-  onOpenDeleteModal,
-}: Props) {
+  function handleOpenCreateActivityModal() {
+    setIsCreateActivityModalOpen(true);
+  }
+
+  function handleCloseCreateActivityModal() {
+    setIsCreateActivityModalOpen(false);
+  }
+
+  const [isEditModalOpen, setIsEditModalOpen] = React.useState(false);
+
+  function handleOpenEditModal() {
+    setIsEditModalOpen(true);
+  }
+
+  function handleCloseEditModal() {
+    setIsEditModalOpen(false);
+  }
+
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false);
+
+  function handleOpenDeleteModal() {
+    setIsDeleteModalOpen(true);
+  }
+
+  function handleCloseDeleteModal() {
+    setIsDeleteModalOpen(false);
+  }
+
   return (
     <Container>
       <div className="title">
         <h1>ACTIVITIES LIST</h1>
-        <button className="green" onClick={onOpenCreateActivityModal}>
+        <button className="green" onClick={handleOpenCreateActivityModal}>
           New Activity
         </button>
       </div>
@@ -42,12 +67,12 @@ export function ActivitiesList({
               <td>00-00-0000</td>
               <td>00-00-0000</td>
               <td>
-                <button onClick={onOpenEditModal}>
+                <button onClick={handleOpenEditModal}>
                   <img src={edit} alt="edit icon" />
                 </button>
               </td>
               <td>
-                <button onClick={onOpenDeleteModal}>
+                <button onClick={handleOpenDeleteModal}>
                   <img src={del} alt="delete icon" />
                 </button>
               </td>
@@ -58,12 +83,12 @@ export function ActivitiesList({
               <td>00-00-0000</td>
               <td>00-00-0000</td>
               <td>
-                <button onClick={onOpenEditModal}>
+                <button onClick={handleOpenEditModal}>
                   <img src={edit} alt="edit icon" />
                 </button>
               </td>
               <td>
-                <button onClick={onOpenDeleteModal}>
+                <button onClick={handleOpenDeleteModal}>
                   <img src={del} alt="delete icon" />
                 </button>
               </td>
@@ -71,6 +96,21 @@ export function ActivitiesList({
           </tbody>
         </table>
       </ListTable>
+
+      <CreateActivityModal
+        isOpen={isCreateActivityModalOpen}
+        onRequestClose={handleCloseCreateActivityModal}
+      />
+
+      <EditModal
+        isOpen={isEditModalOpen}
+        onRequestClose={handleCloseEditModal}
+      />
+
+      <DeleteModal
+        isOpen={isDeleteModalOpen}
+        onRequestClose={handleCloseDeleteModal}
+      />
     </Container>
   );
 }

@@ -2,14 +2,7 @@ import { NavLink } from "react-router-dom";
 import { Cards } from "../../components/Cards/Cards";
 import { Container } from "./styles";
 
-interface Props {
-  onOpenCreateProjectModal: () => void;
-  onOpenCreateActivityModal: () => void;
-}
-export function Dashboard({
-  onOpenCreateProjectModal,
-  onOpenCreateActivityModal,
-}: Props) {
+export function Dashboard() {
   return (
     <Container>
       <Cards title="PROJECTS PROGRESS">
