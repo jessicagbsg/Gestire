@@ -20,10 +20,11 @@ export const ProjectTable = styled.div`
     }
 
     td {
+      text-align: left;
       padding: 1rem 1.5rem;
       border: 0;
       background-color: var(--red-light);
-
+      color: var(--red-dark-text);
       img {
         width: 30px;
         height: 30px;

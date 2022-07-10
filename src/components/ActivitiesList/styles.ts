@@ -20,6 +20,7 @@ export const ActivitiesTable = styled.div`
     }
 
     td {
+      text-align: left;
       padding: 1rem 1.5rem;
       border: 0;
       background-color: var(--blue-light);
