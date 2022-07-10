@@ -66,6 +66,10 @@ export const ListTable = styled.div<ListProps>`
         background-color: ${(p) => p.detailColor};
         position: absolute;
       }
+      & + td:last-child::after {
+        display: none;
+      }
+
       img {
         width: 30px;
         height: 30px;

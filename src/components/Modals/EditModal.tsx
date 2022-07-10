@@ -24,11 +24,30 @@ export function EditModal({ isOpen, onRequestClose }: EditModalProps) {
       </button>
 
       <Container>
-        <h2 className="span">DELETE</h2>
-        <p className="span">Are you sure you want to delete</p>
+        <h2 className="span">EDIT</h2>
 
-        <button className="green">Yes</button>
-        <button>No</button>
+        <div className="span">
+          <label htmlFor="title">Title</label>
+          <input type="text" id="title" placeholder="Project Name" />
+        </div>
+
+        <div className="span">
+          <label htmlFor="description">Descriotion</label>
+          <textarea id="description" placeholder="Project Description" />
+        </div>
+
+        <div>
+          <label htmlFor="startDate"> Start Date</label>
+          <input type="date" id="startDate" />
+        </div>
+
+        <div>
+          <label htmlFor="endDate">End Date</label>
+          <input type="date" id="endDate" />
+        </div>
+
+        <button className="green">Save</button>
+        <button>Cancel</button>
       </Container>
     </Modal>
   );
