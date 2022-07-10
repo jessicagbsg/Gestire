@@ -8,14 +8,13 @@ import { Dashboard } from "./pages/Dashboard/Dashborad";
 import { Header } from "./components/Header/Header";
 import { ProjectsList } from "./pages/ProjectsList/ProjectsList";
 import { GlobalStyle } from "./styles/global";
+import { EditModal } from "./components/Modals/EditModal";
+import { DeleteModal } from "./components/Modals/DeleteModal";
 
 Modal.setAppElement("#root");
 
 export function App() {
   const [isCreateProjectModalOpen, setIsCreateProjectModalOpen] =
-    React.useState(false);
-
-  const [isCreateActivityModalOpen, setIsCreateActivityModalOpen] =
     React.useState(false);
 
   function handleOpenCreateProjectModal() {
@@ -26,12 +25,35 @@ export function App() {
     setIsCreateProjectModalOpen(false);
   }
 
+  const [isCreateActivityModalOpen, setIsCreateActivityModalOpen] =
+    React.useState(false);
+
   function handleOpenCreateActivityModal() {
     setIsCreateActivityModalOpen(true);
   }
 
   function handleCloseCreateActivityModal() {
     setIsCreateActivityModalOpen(false);
+  }
+
+  const [isEditModalOpen, setIsEditModalOpen] = React.useState(false);
+
+  function handleOpenEditModal() {
+    setIsEditModalOpen(true);
+  }
+
+  function handleCloseEditModal() {
+    setIsEditModalOpen(false);
+  }
+
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false);
+
+  function handleOpenDeleteModal() {
+    setIsDeleteModalOpen(true);
+  }
+
+  function handleCloseDeleteModal() {
+    setIsDeleteModalOpen(false);
   }
 
   return (
@@ -55,6 +77,8 @@ export function App() {
               element={
                 <ProjectsList
                   onOpenCreateProjectModal={handleOpenCreateProjectModal}
+                  onOpenEditModal={handleOpenEditModal}
+                  onOpenDeleteModal={handleOpenDeleteModal}
                 />
               }
             ></Route>
@@ -63,6 +87,8 @@ export function App() {
               element={
                 <ActivitiesList
                   onOpenCreateActivityModal={handleOpenCreateActivityModal}
+                  onOpenEditModal={handleOpenEditModal}
+                  onOpenDeleteModal={handleOpenDeleteModal}
                 />
               }
             ></Route>
@@ -74,9 +100,20 @@ export function App() {
         isOpen={isCreateProjectModalOpen}
         onRequestClose={handleCloseCreateProjectModal}
       />
+
       <CreateActivityModal
         isOpen={isCreateActivityModalOpen}
         onRequestClose={handleCloseCreateActivityModal}
+      />
+
+      <EditModal
+        isOpen={isEditModalOpen}
+        onRequestClose={handleCloseEditModal}
+      />
+
+      <DeleteModal
+        isOpen={isDeleteModalOpen}
+        onRequestClose={handleCloseDeleteModal}
       />
     </div>
   );

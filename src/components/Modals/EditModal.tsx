@@ -2,12 +2,12 @@ import Modal from "react-modal";
 import { Container } from "./style";
 import closeModal from "../../assets/close.svg";
 
-interface DeleteModalProps {
+interface EditModalProps {
   isOpen: boolean;
   onRequestClose: () => void;
 }
 
-export function DeleteModal({ isOpen, onRequestClose }: DeleteModalProps) {
+export function EditModal({ isOpen, onRequestClose }: EditModalProps) {
   return (
     <Modal
       isOpen={isOpen}

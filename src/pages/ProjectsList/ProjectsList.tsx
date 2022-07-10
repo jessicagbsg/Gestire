@@ -5,9 +5,15 @@ import { NavLink } from "react-router-dom";
 
 interface Props {
   onOpenCreateProjectModal: () => void;
+  onOpenEditModal: () => void;
+  onOpenDeleteModal: () => void;
 }
 
-export function ProjectsList({ onOpenCreateProjectModal }: Props) {
+export function ProjectsList({
+  onOpenCreateProjectModal,
+  onOpenEditModal,
+  onOpenDeleteModal,
+}: Props) {
   return (
     <Container>
       <div className="title">
@@ -16,7 +22,11 @@ export function ProjectsList({ onOpenCreateProjectModal }: Props) {
           New Project
         </button>
       </div>
-      <ListTable color="#664D4D" backgroundColor="#FFC1B8">
+      <ListTable
+        color="#664D4D"
+        backgroundColor="#FFC1B8"
+        detailColor="#BD8E8F"
+      >
         <table>
           <thead>
             <tr>
@@ -41,10 +51,14 @@ export function ProjectsList({ onOpenCreateProjectModal }: Props) {
                 </NavLink>
               </td>
               <td>
-                <img src={edit} alt="edit icon" />
+                <button onClick={onOpenEditModal}>
+                  <img src={edit} alt="edit icon" />
+                </button>
               </td>
               <td>
-                <img src={del} alt="delete icon" />
+                <button onClick={onOpenDeleteModal}>
+                  <img src={del} alt="delete icon" />
+                </button>
               </td>
             </tr>
 
@@ -62,10 +76,14 @@ export function ProjectsList({ onOpenCreateProjectModal }: Props) {
                 </NavLink>
               </td>
               <td>
-                <img src={edit} alt="edit icon" />
+                <button onClick={onOpenEditModal}>
+                  <img src={edit} alt="edit icon" />
+                </button>
               </td>
               <td>
-                <img src={del} alt="delete icon" />
+                <button onClick={onOpenDeleteModal}>
+                  <img src={del} alt="delete icon" />
+                </button>
               </td>
             </tr>
           </tbody>

@@ -4,9 +4,15 @@ import del from "../../assets/deleteBlue.svg";
 
 interface Props {
   onOpenCreateActivityModal: () => void;
+  onOpenEditModal: () => void;
+  onOpenDeleteModal: () => void;
 }
 
-export function ActivitiesList({ onOpenCreateActivityModal }: Props) {
+export function ActivitiesList({
+  onOpenCreateActivityModal,
+  onOpenEditModal,
+  onOpenDeleteModal,
+}: Props) {
   return (
     <Container>
       <div className="title">
@@ -15,12 +21,16 @@ export function ActivitiesList({ onOpenCreateActivityModal }: Props) {
           New Activity
         </button>
       </div>
-      <ListTable color="#1F3745" backgroundColor="#8EABBD">
+      <ListTable
+        color="#1F3745"
+        backgroundColor="#8EABBD"
+        detailColor="#3E6E8A"
+      >
         <table>
           <thead>
             <tr>
               <th>TITLE</th>
-              <th>PROJECT ASSOCIATED</th>
+              <th>DESCRIPTION</th>
               <th>START DATE</th>
               <th>END DATE</th>
             </tr>
@@ -28,26 +38,34 @@ export function ActivitiesList({ onOpenCreateActivityModal }: Props) {
           <tbody>
             <tr>
               <td>Activity Name</td>
-              <td>Project Name</td>
+              <td>Activity Description</td>
               <td>00-00-0000</td>
               <td>00-00-0000</td>
               <td>
-                <img src={edit} alt="edit icon" />
+                <button onClick={onOpenEditModal}>
+                  <img src={edit} alt="edit icon" />
+                </button>
               </td>
               <td>
-                <img src={del} alt="delete icon" />
+                <button onClick={onOpenDeleteModal}>
+                  <img src={del} alt="delete icon" />
+                </button>
               </td>
             </tr>
             <tr>
               <td>Activity Name</td>
-              <td>Project Name</td>
+              <td>Activity Description</td>
               <td>00-00-0000</td>
               <td>00-00-0000</td>
               <td>
-                <img src={edit} alt="edit icon" />
+                <button onClick={onOpenEditModal}>
+                  <img src={edit} alt="edit icon" />
+                </button>
               </td>
               <td>
-                <img src={del} alt="delete icon" />
+                <button onClick={onOpenDeleteModal}>
+                  <img src={del} alt="delete icon" />
+                </button>
               </td>
             </tr>
           </tbody>

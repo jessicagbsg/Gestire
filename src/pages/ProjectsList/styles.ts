@@ -3,6 +3,7 @@ import styled from "styled-components";
 interface ListProps {
   backgroundColor: string;
   color: string;
+  detailColor: string;
 }
 
 export const Container = styled.main`
@@ -54,6 +55,17 @@ export const ListTable = styled.div<ListProps>`
       background-color: ${(p) => p.backgroundColor};
       color: ${(p) => p.color};
       box-sizing: border-box;
+      position: relative;
+      & + td::after {
+        content: "";
+        display: block;
+        height: 2rem;
+        top: 1rem;
+        left: 2px;
+        width: 1px;
+        background-color: ${(p) => p.detailColor};
+        position: absolute;
+      }
       img {
         width: 30px;
         height: 30px;
@@ -74,6 +86,11 @@ export const ListTable = styled.div<ListProps>`
         &:hover {
           filter: brightness(0.2);
         }
+      }
+      button {
+        padding: 0;
+        margin: 0;
+        background-color: transparent;
       }
     }
   }

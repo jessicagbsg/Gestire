@@ -35,11 +35,6 @@ export function CreateActivityModal({
         </div>
 
         <div className="span">
-          <label htmlFor="Project">Project Name</label>
-          <input type="text" id="Project" placeholder="Activity Name" />
-        </div>
-
-        <div className="span">
           <label htmlFor="description">Descriotion</label>
           <textarea id="description" placeholder="Activity Description" />
         </div>
