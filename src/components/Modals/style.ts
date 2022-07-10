@@ -23,14 +23,16 @@ export const Container = styled.form`
   }
 
   input,
-  textarea {
+  textarea,
+  select {
     width: 100%;
     padding: 0.5rem;
     border: 1px solid #ddd;
     border-radius: 0.2rem;
   }
 
-  input[type="date"] {
+  input[type="date"],
+  select {
     color: #777;
   }
   button {

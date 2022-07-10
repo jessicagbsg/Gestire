@@ -3,8 +3,12 @@ import { Container } from "./styles";
 
 interface Props {
   onOpenCreateProjectModal: () => void;
+  onOpenCreateActivityModal: () => void;
 }
-export function Dashboard({ onOpenCreateProjectModal }: Props) {
+export function Dashboard({
+  onOpenCreateProjectModal,
+  onOpenCreateActivityModal,
+}: Props) {
   return (
     <Container>
       <Cards title="PROJECTS PROGRESS">
@@ -21,7 +25,9 @@ export function Dashboard({ onOpenCreateProjectModal }: Props) {
             You don't have projects. To create a new task, you need to have a
             project.
           </p>
-          <button className="green">New Activity</button>
+          <button className="green" onClick={onOpenCreateActivityModal}>
+            New Activity
+          </button>
         </div>
       </Cards>
       <Cards title="DELAYED PROJECTS">
