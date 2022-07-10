@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Dashboard } from "./components/Dashboard/Dashborad";
 import { Header } from "./components/Header/Header";
 import { GlobalStyle } from "./styles/global";
 
@@ -8,11 +9,13 @@ export function App() {
       <GlobalStyle />
       <BrowserRouter>
         <Header />
-        <Routes>
-          <Route path=""></Route>
-          <Route path=""></Route>
-          <Route path=""></Route>
-        </Routes>
+        <main>
+          <Routes>
+            <Route path="/" element={<Dashboard />}></Route>
+            <Route path=""></Route>
+            <Route path=""></Route>
+          </Routes>
+        </main>
       </BrowserRouter>
     </div>
   );

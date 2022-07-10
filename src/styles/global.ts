@@ -43,8 +43,13 @@ export const GlobalStyle = createGlobalStyle`
   font-weight: 400;
   }
 
-  h1, h2, h3, h4 {
+  h1, h3, h4 {
     font-weight: 600;
+  }
+
+  h2 {
+    font-weight: 400;
+    font-size: 1rem;
   }
 
   button{
