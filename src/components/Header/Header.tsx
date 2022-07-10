@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import logo from "../../Assets/logo.svg";
+import logo from "../../assets/logo.svg";
 import { ContainerNav } from "../Header/styles";
 
 export function Header() {
@@ -10,11 +10,8 @@ export function Header() {
         <NavLink to="/" aria-label="Gestire - Dashboard" end>
           Dashboard
         </NavLink>
-        <NavLink to="/projectsList" aria-label="Gestire - Projects List">
+        <NavLink to="/projects" aria-label="Gestire - Projects List">
           Projects List
-        </NavLink>
-        <NavLink to="/activitiesList" aria-label="Gestire - Activities List">
-          Activities List
         </NavLink>
       </nav>
     </ContainerNav>

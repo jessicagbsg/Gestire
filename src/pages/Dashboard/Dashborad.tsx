@@ -1,4 +1,5 @@
-import { Cards } from "../Cards/Cards";
+import { NavLink } from "react-router-dom";
+import { Cards } from "../../components/Cards/Cards";
 import { Container } from "./styles";
 
 interface Props {
@@ -14,9 +15,9 @@ export function Dashboard({
       <Cards title="PROJECTS PROGRESS">
         <div>
           <p>You don't have projects</p>
-          <button className="green" onClick={onOpenCreateProjectModal}>
-            New Project
-          </button>
+          <NavLink to="/projects" aria-label="Gestire - Projects List">
+            <button className="green">New Project</button>
+          </NavLink>
         </div>
       </Cards>
       <Cards title="ACTIVITIES PROGRESS">
@@ -25,9 +26,6 @@ export function Dashboard({
             You don't have projects. To create a new task, you need to have a
             project.
           </p>
-          <button className="green" onClick={onOpenCreateActivityModal}>
-            New Activity
-          </button>
         </div>
       </Cards>
       <Cards title="DELAYED PROJECTS">

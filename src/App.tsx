@@ -1,12 +1,12 @@
 import React from "react";
 import Modal from "react-modal";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { ActivitiesList } from "./components/ActivitiesList/ActivitiesList";
+import { ActivitiesList } from "./pages/ActivitiesList/ActivitiesList";
 import { CreateProjectModal } from "./components/Modals/CreateProjectModal";
 import { CreateActivityModal } from "./components/Modals/CreateActivityModal";
-import { Dashboard } from "./components/Dashboard/Dashborad";
+import { Dashboard } from "./pages/Dashboard/Dashborad";
 import { Header } from "./components/Header/Header";
-import { ProjectsList } from "./components/ProjectsList/ProjectsList";
+import { ProjectsList } from "./pages/ProjectsList/ProjectsList";
 import { GlobalStyle } from "./styles/global";
 
 Modal.setAppElement("#root");
@@ -50,11 +50,26 @@ export function App() {
                 />
               }
             ></Route>
-            <Route path="/projectsList" element={<ProjectsList />}></Route>
-            <Route path="/activitiesList" element={<ActivitiesList />}></Route>
+            <Route
+              path="/projects"
+              element={
+                <ProjectsList
+                  onOpenCreateProjectModal={handleOpenCreateProjectModal}
+                />
+              }
+            ></Route>
+            <Route
+              path="/projects/:id/activities"
+              element={
+                <ActivitiesList
+                  onOpenCreateActivityModal={handleOpenCreateActivityModal}
+                />
+              }
+            ></Route>
           </Routes>
         </main>
       </BrowserRouter>
+
       <CreateProjectModal
         isOpen={isCreateProjectModalOpen}
         onRequestClose={handleCloseCreateProjectModal}

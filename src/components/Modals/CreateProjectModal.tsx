@@ -1,6 +1,6 @@
 import Modal from "react-modal";
 import { Container } from "./style";
-import closeModal from "../../Assets/close.svg";
+import closeModal from "../../assets/close.svg";
 
 interface CreateProjectModalProps {
   isOpen: boolean;

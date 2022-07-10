@@ -12,8 +12,7 @@ export const GlobalStyle = createGlobalStyle`
 
   --red-light:#FFC1B8;
   --red-medium:#DB797D;
-  --red-dark:#DB797D;
-  --red-dark-text:#453434;
+  --red-dark-text:#664D4D;
 
   --blue-light:#8EABBD;
   --blue-medium:#3E6E8A;
@@ -44,12 +43,15 @@ export const GlobalStyle = createGlobalStyle`
   font-weight: 400;
   }
 
-  h1, h3, h4 {
-    font-weight: 600;
+  h1 , h2 {
+    font-weight: 400;
+  }
+
+  h1 {
+    font-size: 1.2rem;
   }
 
   h2 {
-    font-weight: 400;
     font-size: 1rem;
   }
 
