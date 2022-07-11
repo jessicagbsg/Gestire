@@ -31,7 +31,7 @@ export function CreateProjectModal({
 
         <div className="span">
           <label htmlFor="title">Title</label>
-          <input type="text" id="title" placeholder="Project Name" />
+          <input type="text" id="title" placeholder="Project Name" required />
         </div>
 
         <div className="span">
@@ -41,15 +41,17 @@ export function CreateProjectModal({
 
         <div>
           <label htmlFor="startDate"> Start Date</label>
-          <input type="date" id="startDate" />
+          <input type="date" id="startDate" required />
         </div>
 
         <div>
           <label htmlFor="endDate">End Date</label>
-          <input type="date" id="endDate" />
+          <input type="date" id="endDate" required />
         </div>
 
-        <button className="green">Create</button>
+        <button type="submit" className="green">
+          Create
+        </button>
         <button>Cancel</button>
       </Container>
     </Modal>

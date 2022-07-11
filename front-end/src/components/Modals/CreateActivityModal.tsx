@@ -31,7 +31,7 @@ export function CreateActivityModal({
 
         <div className="span">
           <label htmlFor="title">Title</label>
-          <input type="text" id="title" placeholder="Activity Name" />
+          <input type="text" id="title" placeholder="Activity Name" required />
         </div>
 
         <div className="span">
@@ -41,12 +41,12 @@ export function CreateActivityModal({
 
         <div>
           <label htmlFor="startDate"> Start Date</label>
-          <input type="date" id="startDate" />
+          <input type="date" id="startDate" required />
         </div>
 
         <div>
           <label htmlFor="endDate">End Date</label>
-          <input type="date" id="endDate" />
+          <input type="date" id="endDate" required />
         </div>
 
         <div className="span">
@@ -57,7 +57,9 @@ export function CreateActivityModal({
           </select>
         </div>
 
-        <button className="green">Create</button>
+        <button type="submit" className="green">
+          Create
+        </button>
         <button>Cancel</button>
       </Container>
     </Modal>

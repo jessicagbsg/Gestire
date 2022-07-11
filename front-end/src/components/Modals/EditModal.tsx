@@ -46,7 +46,9 @@ export function EditModal({ isOpen, onRequestClose }: EditModalProps) {
           <input type="date" id="endDate" />
         </div>
 
-        <button className="green">Save</button>
+        <button type="submit" className="green">
+          Save
+        </button>
         <button>Cancel</button>
       </Container>
     </Modal>

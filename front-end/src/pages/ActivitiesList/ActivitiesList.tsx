@@ -56,6 +56,7 @@ export function ActivitiesList() {
             <tr>
               <th>TITLE</th>
               <th>DESCRIPTION</th>
+              <th>PROJECT ID</th>
               <th>START DATE</th>
               <th>END DATE</th>
             </tr>
@@ -64,6 +65,7 @@ export function ActivitiesList() {
             <tr>
               <td>Activity Name</td>
               <td>Activity Description</td>
+              <td>Project Id</td>
               <td>00-00-0000</td>
               <td>00-00-0000</td>
               <td>
@@ -80,6 +82,7 @@ export function ActivitiesList() {
             <tr>
               <td>Activity Name</td>
               <td>Activity Description</td>
+              <td>Project Id</td>
               <td>00-00-0000</td>
               <td>00-00-0000</td>
               <td>
