@@ -46,5 +46,8 @@ export const ContainerNav = styled.header`
     &:hover:after {
       width: 100%;
     }
+    &.active:after {
+      width: 100%;
+    }
   }
 `;
