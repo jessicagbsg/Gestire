@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "outDir": "build",
+    "module": "commonjs",
+    "target": "es2019",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "rootDirs": ["src", "tests"],
+    "baseUrl": "src",
+    "resolveJsonModule": true,
+    "experimentalDecorators": true
+  },
+  "include": ["src", "tests"],
+  "exclude": []
+}

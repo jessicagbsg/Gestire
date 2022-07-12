@@ -1,0 +1,53 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "rimraf build && yarn prisma:generate && tsc -p tsconfig-build.json",
+    "start:dev": "yarn prisma:generate && tsnd src/server.ts",
+    "start:prod": "yarn migration:run && node build/server.js",
+    "lint": "yarn eslint src --max-warnings=0 && yarn prettier --check src",
+    "lint:fix": "yarn eslint --max-warnings=0 --fix src && yarn prettier --write src",
+    "migration:generate": "npx prisma migrate dev",
+    "migration:run": "npx prisma db push",
+    "prisma:generate": "npx prisma generate",
+    "prisma:studio": "npx prisma studio",
+    "test": "jest --passWithNoTests --runInBand --no-cache",
+    "test:integration": "yarn migration:run && yarn test:base -- --watch -c jest-integration-config.js --verbose",
+    "test:unit": "yarn migration:run && yarn test:base -- --watch -c jest-unit-config.js",
+    "test:verbose": "jest --passWithNoTests --runInBand"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.11.0",
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "prisma": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/faker": "^5.5.8",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^17.0.21",
+    "@types/supertest": "^2.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "eslint": "^8.16.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-import-helpers": "^1.2.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.3.1",
+    "prettier": "^2.6.2",
+    "rimraf": "^3.0.2",
+    "supertest": "^6.1.6",
+    "ts-jest": "^27.0.7",
+    "ts-node-dev": "^2.0.0-0",
+    "typescript": "^4.7.2"
+  },
+  "prisma": {
+    "schema": "src/database/prisma/schema.prisma"
+  }
+}
