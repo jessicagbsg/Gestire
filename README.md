@@ -67,7 +67,7 @@ yarn start
 ```
 
 
-# Author
+# Autor
 LinkedIn:
 https://www.linkedin.com/in/jessicagondim/
 
