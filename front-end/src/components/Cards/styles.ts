@@ -7,6 +7,15 @@ export const Card = styled.div`
   display: grid;
   grid-template-rows: auto 1fr;
   border-radius: 5px;
+  li {
+    list-style: none;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #ddd;
+    color: #333;
+    text-align: left;
+    border-radius: 0.2rem;
+  }
   div {
     margin: 3rem 0;
     display: flex;

@@ -5,8 +5,22 @@ import del from "../../assets/deleteBlue.svg";
 import { EditModal } from "../../components/Modals/EditModal";
 import { DeleteModal } from "../../components/Modals/DeleteModal";
 import { CreateActivityModal } from "../../components/Modals/CreateActivityModal";
+import { useParams } from "react-router-dom";
+import { Activity, listActivity } from "../../api";
 
 export function ActivitiesList() {
+  const { id } = useParams();
+  console.log(id);
+
+  const [activities, setActivities] = React.useState<Activity[]>([]);
+
+  React.useEffect(() => {
+    async function LoadActivities() {
+      const response = await listActivity(id as string);
+      setActivities(response);
+    }
+    LoadActivities();
+  }, [id]);
   const [isCreateActivityModalOpen, setIsCreateActivityModalOpen] =
     React.useState(false);
 
@@ -62,40 +76,32 @@ export function ActivitiesList() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Activity Name</td>
-              <td>Activity Description</td>
-              <td>Project Id</td>
-              <td>00-00-0000</td>
-              <td>00-00-0000</td>
-              <td>
-                <button onClick={handleOpenEditModal}>
-                  <img src={edit} alt="edit icon" />
-                </button>
-              </td>
-              <td>
-                <button onClick={handleOpenDeleteModal}>
-                  <img src={del} alt="delete icon" />
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>Activity Name</td>
-              <td>Activity Description</td>
-              <td>Project Id</td>
-              <td>00-00-0000</td>
-              <td>00-00-0000</td>
-              <td>
-                <button onClick={handleOpenEditModal}>
-                  <img src={edit} alt="edit icon" />
-                </button>
-              </td>
-              <td>
-                <button onClick={handleOpenDeleteModal}>
-                  <img src={del} alt="delete icon" />
-                </button>
-              </td>
-            </tr>
+            {activities.length > 0
+              ? activities.map((activity) => (
+                  <tr>
+                    <td>{activity.name}</td>
+                    <td>{activity.description}</td>
+                    <td>Project {id}</td>
+                    <td>{`${new Date(activity.start_at).getDate()}-${
+                      new Date(activity.start_at).getMonth() + 1
+                    }-${new Date(activity.start_at).getFullYear()}`}</td>
+                    <td>{`${new Date(activity.end_at).getDate()}-${
+                      new Date(activity.end_at).getMonth() + 1
+                    }-${new Date(activity.end_at).getFullYear()}`}</td>
+
+                    <td>
+                      <button onClick={handleOpenEditModal}>
+                        <img src={edit} alt="edit icon" />
+                      </button>
+                    </td>
+                    <td>
+                      <button onClick={handleOpenDeleteModal}>
+                        <img src={del} alt="delete icon" />
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              : null}
           </tbody>
         </table>
       </ListTable>
