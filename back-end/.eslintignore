@@ -1,0 +1,7 @@
+#folders
+node_modules
+build
+
+jest-integration-config.js
+jest-unit-config.js
+jest-integration-config
