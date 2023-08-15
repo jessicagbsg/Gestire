@@ -1,4 +1,4 @@
-# DesafioGrupoEuax-JessicaGondim
+# Gestire
  
  Projeto desenvolvido para o desafio do Grupo Euax - estágio em desenvolvimento
  
